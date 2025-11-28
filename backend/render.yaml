@@ -1,0 +1,10 @@
+# Draft Render service config — replace <REPO_URL> and branch
+services:
+  - type: web
+    name: prou-backend
+    env: node
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "npm run start"
+    repo: "<REPO_URL>"
+    branch: main
