@@ -16,10 +16,15 @@ connectDB();
 // Middleware
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN || '*',
+    origin: [
+      "http://localhost:5173",
+      "https://prou-task-manager-fqau.vercel.app"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
