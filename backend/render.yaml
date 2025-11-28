@@ -1,10 +1,15 @@
-# Draft Render service config — replace <REPO_URL> and branch
+# Render service config for automatic import. Review before using.
 services:
   - type: web
     name: prou-backend
     env: node
     plan: free
-    buildCommand: "npm install"
-    startCommand: "npm run start"
-    repo: "<REPO_URL>"
+    repo: "https://github.com/mohdrizwan11/Prou-Task-Manager.git"
     branch: main
+    root: backend
+    buildCommand: "cd backend && npm install"
+    startCommand: "npm run start"
+    # Do NOT store secrets here. Add environment variables in the Render dashboard:
+    #   MONGODB_URI: your mongodb connection string
+    #   JWT_SECRET: your_jwt_secret
+    #   CORS_ORIGIN: https://your-frontend.vercel.app

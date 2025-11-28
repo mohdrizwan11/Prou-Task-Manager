@@ -207,7 +207,7 @@ const TaskList = () => {
             </div>
             <p className="task-description">{task.description}</p>
             <div className="task-meta">
-              <strong>Assigned to:</strong> {getEmployeeName(task.assignedTo._id || task.assignedTo)}
+              <strong>Assigned to:</strong> {getEmployeeName(task.assignedTo?._id || task.assignedTo)}
             </div>
             <div className="task-meta">
               <strong>Due:</strong> {new Date(task.dueDate).toLocaleDateString()}
