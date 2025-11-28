@@ -1,11 +1,12 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+// Always use the production backend URL when deployed
+const API_URL = `${import.meta.env.VITE_API_URL}/api`;
 
 const api = axios.create({
   baseURL: API_URL,
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
 });
 
@@ -23,7 +24,7 @@ export const taskAPI = {
   getAll: () => api.get('/tasks'),
   getById: (id) => api.get(`/tasks/${id}`),
   create: (data) => api.post('/tasks', data),
-  update: (id, data) => api.put(`/tasks/${id}`, data),
+  update: (id, data) => api.put(`/tasks/${id}`),
   delete: (id) => api.delete(`/tasks/${id}`),
   getByEmployee: (employeeId) => api.get(`/tasks/employee/${employeeId}`),
   getStats: () => api.get('/tasks/stats/dashboard'),
